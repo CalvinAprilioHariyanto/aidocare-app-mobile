@@ -7,6 +7,7 @@ import {
   View,
 } from 'react-native';
 import { Colors } from '../../constants/colors';
+import { Images } from '../../constants/images';
 
 export function LoginHero() {
   return (
@@ -26,7 +27,7 @@ export function LoginHero() {
       <View style={styles.visualContainer}>
         <View style={styles.imageBackdrop}>
           <Image
-            source={require('../../assets/images/Doctor1.png')}
+            source={Images.doctor}
             style={styles.doctorImage}
             resizeMode="contain"
           />

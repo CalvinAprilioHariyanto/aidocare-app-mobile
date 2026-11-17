@@ -1,7 +1,6 @@
 import { Feather } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
 import {
-  Dimensions,
   Image,
   ScrollView,
   StyleSheet,
@@ -10,14 +9,7 @@ import {
   View,
 } from 'react-native';
 import { Colors } from '../../constants/colors';
-
-const SLIDE_IMAGES = [
-  require('../../assets/images/slide1.jpg'),
-  require('../../assets/images/slide2.jpg'),
-  require('../../assets/images/slide3.jpg'),
-  require('../../assets/images/slide4.jpg'),
-  require('../../assets/images/slide5.jpg'),
-];
+import { Images } from '../../constants/images';
 
 const SPECIALTIES = [
   'General Doctor',
@@ -29,21 +21,22 @@ const SPECIALTIES = [
 
 export function RegisterHero() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const slideImages = Images.slides;
 
   // Auto-slide every 3.5s
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % SLIDE_IMAGES.length);
+      setCurrentSlide((prev) => (prev + 1) % slideImages.length);
     }, 3500);
     return () => clearInterval(timer);
-  }, []);
+  }, [slideImages.length]);
 
   function handlePrev() {
-    setCurrentSlide((prev) => (prev - 1 + SLIDE_IMAGES.length) % SLIDE_IMAGES.length);
+    setCurrentSlide((prev) => (prev - 1 + slideImages.length) % slideImages.length);
   }
 
   function handleNext() {
-    setCurrentSlide((prev) => (prev + 1) % SLIDE_IMAGES.length);
+    setCurrentSlide((prev) => (prev + 1) % slideImages.length);
   }
 
   return (
@@ -53,7 +46,7 @@ export function RegisterHero() {
       {/* Carousel Container */}
       <View style={styles.carouselContainer}>
         <Image
-          source={SLIDE_IMAGES[currentSlide]}
+          source={slideImages[currentSlide]}
           style={styles.slideImage}
           resizeMode="cover"
         />
@@ -77,7 +70,7 @@ export function RegisterHero() {
 
         {/* Dot Indicators */}
         <View style={styles.dotsContainer}>
-          {SLIDE_IMAGES.map((_, index) => (
+          {slideImages.map((_, index) => (
             <TouchableOpacity
               key={index}
               onPress={() => setCurrentSlide(index)}

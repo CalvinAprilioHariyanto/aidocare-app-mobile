@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View, ViewStyle } from 'react-native';
 import { Colors } from '../../constants/colors';
+import { Images } from '../../constants/images';
 
 interface LogoProps {
   style?: ViewStyle;
@@ -21,7 +22,7 @@ export function Logo({ style, size = 'medium', showText = true }: LogoProps) {
     <View style={[styles.container, style]}>
       <View style={styles.logoRow}>
         <Image
-          source={require('../../assets/images/logo.png')}
+          source={Images.logo}
           style={{ width: currentSize.width * 1.1, height: currentSize.height * 1.1 }}
           resizeMode="contain"
           accessibilityLabel="Aido Care Logo"
