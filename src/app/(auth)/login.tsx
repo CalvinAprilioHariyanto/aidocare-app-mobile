@@ -45,7 +45,7 @@ export default function LoginScreen() {
     try {
       const result = await login(email, password, rememberMe);
       if (result.success) {
-        router.replace('/(app)/home');
+        router.replace('/(app)/(tabs)');
       } else {
         setError(result.message || 'Invalid email or password.');
       }
