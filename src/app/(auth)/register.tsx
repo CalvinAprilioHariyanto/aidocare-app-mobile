@@ -13,7 +13,6 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AccountSwitcher } from '../../components/auth/AccountSwitcher';
-import { RegisterHero } from '../../components/auth/RegisterHero';
 import { Button } from '../../components/ui/Button';
 import { Checkbox } from '../../components/ui/Checkbox';
 import { Input } from '../../components/ui/Input';
@@ -134,9 +133,6 @@ export default function RegisterScreen() {
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"
         >
-          {/* Top Brand Visual Carousel matching Website */}
-          <RegisterHero />
-
           {/* Centered Aido Care Logo */}
           <Logo style={styles.logo} />
 
@@ -279,11 +275,11 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingHorizontal: 20,
-    paddingTop: 8,
+    paddingTop: 16,
     paddingBottom: 36,
   },
   logo: {
-    marginVertical: 4,
+    marginVertical: 12,
   },
   header: {
     marginBottom: 16,

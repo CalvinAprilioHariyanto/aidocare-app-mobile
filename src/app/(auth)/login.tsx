@@ -13,7 +13,6 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AccountSwitcher } from '../../components/auth/AccountSwitcher';
-import { LoginHero } from '../../components/auth/LoginHero';
 import { Button } from '../../components/ui/Button';
 import { Checkbox } from '../../components/ui/Checkbox';
 import { Input } from '../../components/ui/Input';
@@ -74,9 +73,6 @@ export default function LoginScreen() {
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"
         >
-          {/* Top Brand Visual matching Website */}
-          <LoginHero />
-
           {/* Centered Aido Care Logo */}
           <Logo style={styles.logo} />
 
@@ -123,23 +119,13 @@ export default function LoginScreen() {
               }}
             />
 
-            {/* Remember Me & Reset Password */}
+            {/* Remember Me */}
             <View style={styles.optionsRow}>
               <Checkbox
                 checked={rememberMe}
                 onChange={setRememberMe}
                 label="Remember me"
               />
-              <TouchableOpacity
-                onPress={() =>
-                  Alert.alert(
-                    'Reset Password',
-                    'Password reset instructions have been simulated. Check your registered email.'
-                  )
-                }
-              >
-                <Text style={styles.resetPasswordText}>Reset Password</Text>
-              </TouchableOpacity>
             </View>
 
             {/* Submit Button */}
@@ -186,11 +172,11 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingHorizontal: 20,
-    paddingTop: 8,
+    paddingTop: 16,
     paddingBottom: 32,
   },
   logo: {
-    marginVertical: 4,
+    marginVertical: 12,
   },
   header: {
     marginBottom: 16,
@@ -229,14 +215,8 @@ const styles = StyleSheet.create({
   optionsRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
     marginBottom: 18,
     marginTop: 2,
-  },
-  resetPasswordText: {
-    fontSize: 13,
-    fontWeight: '600',
-    color: Colors.textPrimary,
   },
   submitButton: {
     marginTop: 4,
